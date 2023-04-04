@@ -1,4 +1,4 @@
-const myLibrary = [1];
+const myLibrary = [];
 
 const Test = {
     title: 'A',
@@ -45,7 +45,9 @@ function displayBooksOnPage() {
     myLibrary.forEach((element) => {
         console.log(element);
         const div = document.createElement('div');
-        div.textContent = element;
+        div.textContent = `${element.title} by ${element.author}, ${element.pages}, ${element.read}`;
         body.appendChild(div);
     });
 }
+
+displayBooksOnPage();
