@@ -1,4 +1,4 @@
-const myLibrary = [];
+const myLibrary = [1];
 
 const Test = {
     title: 'A',
@@ -38,8 +38,14 @@ function addBookToLibrary() {
     myLibrary.push(Test2);
 }
 
-function displayBookOnPage() {
+addBookToLibrary();
+const body = document.querySelector('body');
+
+function displayBooksOnPage() {
     myLibrary.forEach((element) => {
         console.log(element);
+        const div = document.createElement('div');
+        div.textContent = element;
+        body.appendChild(div);
     });
 }
