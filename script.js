@@ -40,10 +40,10 @@ const container = document.querySelector('.container');
 
 function displayBooksOnPage() {
     myLibrary.forEach((element) => {
-        console.log(element);
-        const div = document.createElement('div');
-        div.textContent = `${element.title} by ${element.author}, ${element.pages}, ${element.read}`;
-        container.appendChild(div);
+        const book = document.createElement('div');
+        book.classList.add('book');
+        book.textContent = `${element.title} by ${element.author}, ${element.pages}, ${element.read}`;
+        container.appendChild(book);
     });
 }
 
