@@ -34,14 +34,16 @@ function addBookToLibrary() {
 }
 
 addBookToLibrary();
+
 const body = document.querySelector('body');
+const container = document.querySelector('.container');
 
 function displayBooksOnPage() {
     myLibrary.forEach((element) => {
         console.log(element);
         const div = document.createElement('div');
         div.textContent = `${element.title} by ${element.author}, ${element.pages}, ${element.read}`;
-        body.appendChild(div);
+        container.appendChild(div);
     });
 }
 
