@@ -42,7 +42,15 @@ function displayBooksOnPage() {
     myLibrary.forEach((element) => {
         const book = document.createElement('div');
         book.classList.add('book');
-        book.textContent = `${element.title} by ${element.author}, ${element.pages}, ${element.read}`;
+        const title = document.createElement('div')
+        const author = document.createElement('div')
+        const pages = document.createElement('div')
+        const status = document.createElement('div')
+        title.textContent = `${element.title}`;
+        author.textContent = `${element.author}`;
+        pages.textContent = `Pages: ${element.pages}`;
+        status.textContent = `${element.read}`;
+        book.append(title, author, pages, status);
         container.appendChild(book);
     });
 }
