@@ -1,19 +1,5 @@
 const myLibrary = [];
 
-const Test = {
-    title: 'A',
-    author: 'A',
-    pages: 300,
-    read: 'read',
-};
-
-const Test2 = {
-    title: 'A',
-    author: 'A',
-    pages: 300,
-    read: 'read',
-};
-
 // the book constructor
 function Book(title, author, pages, read) {
     this.title = title;
@@ -32,10 +18,19 @@ const howlsCastle = new Book(
     'read',
 );
 
+const Test = new Book (
+    'A',
+    'A',
+    300,
+    'read',
+);
+
 function addBookToLibrary() {
+    // get data from user
+    // convert data into book objects
+    // add object to the array
     myLibrary.push(howlsCastle);
     myLibrary.push(Test);
-    myLibrary.push(Test2);
 }
 
 addBookToLibrary();
