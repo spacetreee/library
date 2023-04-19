@@ -18,7 +18,7 @@ const howlsCastle = new Book(
     'read',
 );
 
-const Test = new Book (
+const Test = new Book(
     'A',
     'A',
     300,
@@ -42,10 +42,10 @@ function displayBooksOnPage() {
     myLibrary.forEach((element) => {
         const book = document.createElement('div');
         book.classList.add('book');
-        const title = document.createElement('div')
-        const author = document.createElement('div')
-        const pages = document.createElement('div')
-        const status = document.createElement('div')
+        const title = document.createElement('div');
+        const author = document.createElement('div');
+        const pages = document.createElement('div');
+        const status = document.createElement('div');
         title.textContent = `${element.title}`;
         author.textContent = `${element.author}`;
         pages.textContent = `Pages: ${element.pages}`;
@@ -56,3 +56,16 @@ function displayBooksOnPage() {
 }
 
 displayBooksOnPage();
+
+// hide/display form to add book
+function displayForm() {
+    const form = document.querySelector('form');
+    if (form.style.display === 'none') {
+        form.style.display = 'block';
+    } else {
+        form.style.display = 'none';
+    }
+}
+
+const displayBtn = document.querySelector('#display-form');
+displayBtn.addEventListener('click', displayForm);
