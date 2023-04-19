@@ -2,3 +2,15 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 }
+
+.f-container {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
