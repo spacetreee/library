@@ -69,3 +69,17 @@ function displayForm() {
 
 const displayBtn = document.querySelector('#display-form');
 displayBtn.addEventListener('click', displayForm);
+
+const form = document.querySelector('#add-book');
+console.log(form);
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const newTitle = document.querySelector('#title');
+    const newAuthor = document.createElement('#author');
+    const newPages = document.createElement('#page');
+    const newStatus = document.createElement('#status');
+
+    addBookToLibrary();
+});
