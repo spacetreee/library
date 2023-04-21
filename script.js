@@ -18,19 +18,18 @@ const howlsCastle = new Book(
     'read',
 );
 
-const Test = new Book(
-    'A',
-    'A',
-    300,
-    'read',
-);
-
-function addBookToLibrary() {
+function addBookToLibrary(title, author, page, status) {
     // get data from user
     // convert data into book objects
     // add object to the array
+    const obj = new Book(
+        title,
+        author,
+        page,
+        status,
+    );
     myLibrary.push(howlsCastle);
-    myLibrary.push(Test);
+    myLibrary.push(obj);
 }
 
 addBookToLibrary();
@@ -77,9 +76,10 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
 
     const newTitle = document.querySelector('#title');
-    const newAuthor = document.createElement('#author');
-    const newPages = document.createElement('#page');
-    const newStatus = document.createElement('#status');
+    const newAuthor = document.querySelector('#author');
+    const newPages = document.querySelector('#page');
+    const newStatus = document.querySelector('#status');
 
-    addBookToLibrary();
+    console.log(newTitle.value, newAuthor.value, newPages.value, newStatus.value);
+    addBookToLibrary(newTitle.value, newAuthor.value, newPages.value, newStatus.value);
 });
