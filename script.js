@@ -17,6 +17,7 @@ const howlsCastle = new Book(
     336,
     'read',
 );
+myLibrary.push(howlsCastle);
 
 function addBookToLibrary(title, author, page, status) {
     // get data from user
@@ -28,13 +29,14 @@ function addBookToLibrary(title, author, page, status) {
         page,
         status,
     );
-    myLibrary.push(howlsCastle);
-    myLibrary.push(obj);
+
+    if (obj.title && obj.author && obj.pages) {
+        myLibrary.push(obj);
+    }
 }
 
 addBookToLibrary();
 
-const body = document.querySelector('body');
 const container = document.querySelector('.container');
 
 function displayBooksOnPage() {
@@ -70,7 +72,6 @@ const displayBtn = document.querySelector('#display-form');
 displayBtn.addEventListener('click', displayForm);
 
 const form = document.querySelector('#add-book');
-console.log(form);
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -78,8 +79,8 @@ form.addEventListener('submit', (e) => {
     const newTitle = document.querySelector('#title');
     const newAuthor = document.querySelector('#author');
     const newPages = document.querySelector('#page');
-    const newStatus = document.querySelector('#status');
+    // const newStatus = document.querySelector('#status');
 
-    console.log(newTitle.value, newAuthor.value, newPages.value, newStatus.value);
-    addBookToLibrary(newTitle.value, newAuthor.value, newPages.value, newStatus.value);
+    console.log(newTitle.value, newAuthor.value, newPages.value);
+    addBookToLibrary(newTitle.value, newAuthor.value, newPages.value);
 });
