@@ -35,6 +35,9 @@ function addBookToLibrary(title, author, page, status) {
     }
 }
 
+// dear future me, my next step is trying to actually display
+// the object once it has been pushed to the library
+
 addBookToLibrary();
 
 const container = document.querySelector('.container');
@@ -83,4 +86,5 @@ form.addEventListener('submit', (e) => {
 
     console.log(newTitle.value, newAuthor.value, newPages.value);
     addBookToLibrary(newTitle.value, newAuthor.value, newPages.value);
+    displayBooksOnPage();
 });
