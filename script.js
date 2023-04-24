@@ -35,9 +35,6 @@ function addBookToLibrary(title, author, page, status) {
     }
 }
 
-// dear future me, my next step is trying to actually display
-// the object once it has been pushed to the library
-
 addBookToLibrary();
 
 const container = document.querySelector('.container');
@@ -59,6 +56,11 @@ function displayBooksOnPage() {
         status.textContent = `${element.read}`;
         book.append(title, author, pages, status);
         container.appendChild(book);
+
+        // add button to remove book from display
+        const removeBook = document.createElement('button');
+        removeBook.textContent = 'Remove Book';
+        book.append(removeBook);
     });
 }
 
