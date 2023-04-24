@@ -43,6 +43,9 @@ addBookToLibrary();
 const container = document.querySelector('.container');
 
 function displayBooksOnPage() {
+    while (container.firstChild) {
+        container.removeChild(container.lastChild);
+    }
     myLibrary.forEach((element) => {
         const book = document.createElement('div');
         book.classList.add('book');
