@@ -43,9 +43,11 @@ function displayBooksOnPage() {
     while (container.firstChild) {
         container.removeChild(container.lastChild);
     }
+    let index = 0;
     myLibrary.forEach((element) => {
         const book = document.createElement('div');
         book.classList.add('book');
+        book.classList.add(`${index}`);
         const title = document.createElement('div');
         const author = document.createElement('div');
         const pages = document.createElement('div');
@@ -58,9 +60,13 @@ function displayBooksOnPage() {
         container.appendChild(book);
 
         // add button to remove book from display
-        const removeBook = document.createElement('button');
-        removeBook.textContent = 'Remove Book';
-        book.append(removeBook);
+        const removeBookBtn = document.createElement('button');
+        removeBookBtn.textContent = 'Remove Book';
+        removeBookBtn.addEventListener('click', removeBook);
+        removeBookBtn.classList.add(`${index}`);
+        book.append(removeBookBtn);
+
+        index += 1;
     });
 }
 
