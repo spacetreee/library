@@ -47,7 +47,7 @@ function displayBooksOnPage() {
     myLibrary.forEach((element) => {
         const book = document.createElement('div');
         book.classList.add('book');
-        book.classList.add(`${index}`);
+        book.setAttribute('data-index', `${index}`);
         const title = document.createElement('div');
         const author = document.createElement('div');
         const pages = document.createElement('div');
@@ -63,7 +63,7 @@ function displayBooksOnPage() {
         const removeBookBtn = document.createElement('button');
         removeBookBtn.textContent = 'Remove Book';
         removeBookBtn.addEventListener('click', removeBook);
-        removeBookBtn.classList.add(`${index}`);
+        removeBookBtn.setAttribute('data-index', `${index}`);
         book.append(removeBookBtn);
 
         index += 1;
@@ -99,3 +99,13 @@ form.addEventListener('submit', (e) => {
     addBookToLibrary(newTitle.value, newAuthor.value, newPages.value);
     displayBooksOnPage();
 });
+
+// remove book from display when remove book button clicked
+function removeBook(e) {
+    console.log('do something');
+    console.log(e.target.dataset.index);
+
+    // need to select the book object, hm what if i gave each book an id
+    const clickedBook = document.querySelector(`div[data-index='${e.target.dataset.index}']`);
+    container.removeChild(clickedBook);
+}
