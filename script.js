@@ -104,8 +104,12 @@ form.addEventListener('submit', (e) => {
 function removeBook(e) {
     console.log('do something');
     console.log(e.target.dataset.index);
+    let clickedIndex = e.target.dataset.index;
 
-    // need to select the book object, hm what if i gave each book an id
-    const clickedBook = document.querySelector(`div[data-index='${e.target.dataset.index}']`);
+    const clickedBook = document.querySelector(`
+        div[data-index='${e.target.dataset.index}']`);
     container.removeChild(clickedBook);
+
+    // remove book from library
+    myLibrary.splice(clickedIndex, 1);
 }
