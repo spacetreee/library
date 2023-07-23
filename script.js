@@ -1,13 +1,13 @@
 const myLibrary = [];
 
 // the book constructor
-function Book(title, author, pages, read) {
+function Book(title, author, pages, status) {
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.read = read;
+    this.status = status;
     this.info = function () {
-        console.log(`${title} by ${author}, ${pages}, ${read}`);
+        console.log(`${title} by ${author}, ${pages}, ${status}`);
     };
 }
 
