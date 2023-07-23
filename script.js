@@ -30,7 +30,7 @@ function addBookToLibrary(title, author, page, status) {
         status,
     );
 
-    if (obj.title && obj.author && obj.pages) {
+    if (obj.title && obj.author && obj.pages && obj.status) {
         myLibrary.push(obj);
     }
 }
@@ -39,6 +39,7 @@ addBookToLibrary();
 
 const container = document.querySelector('.container');
 
+// displays content of book array to the page
 function displayBooksOnPage() {
     while (container.firstChild) {
         container.removeChild(container.lastChild);
@@ -55,7 +56,7 @@ function displayBooksOnPage() {
         title.textContent = `${element.title}`;
         author.textContent = `${element.author}`;
         pages.textContent = `Pages: ${element.pages}`;
-        status.textContent = `${element.read}`;
+        status.textContent = `Status: ${element.read}`;
         book.append(title, author, pages, status);
         container.appendChild(book);
 
@@ -93,10 +94,10 @@ form.addEventListener('submit', (e) => {
     const newTitle = document.querySelector('#title');
     const newAuthor = document.querySelector('#author');
     const newPages = document.querySelector('#page');
-    // const newStatus = document.querySelector('#status');
+    const newStatus = document.querySelector('#status');
 
-    console.log(newTitle.value, newAuthor.value, newPages.value);
-    addBookToLibrary(newTitle.value, newAuthor.value, newPages.value);
+    console.log(newTitle.value, newAuthor.value, newPages.value, newStatus.value);
+    addBookToLibrary(newTitle.value, newAuthor.value, newPages.value, newStatus.value);
     displayBooksOnPage();
 });
 
