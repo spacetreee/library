@@ -19,10 +19,8 @@ const howlsCastle = new Book(
 );
 myLibrary.push(howlsCastle);
 
+// add user book data to book array
 function addBookToLibrary(title, author, page, status) {
-    // get data from user
-    // convert data into book objects
-    // add object to the array
     const obj = new Book(
         title,
         author,
@@ -56,7 +54,7 @@ function displayBooksOnPage() {
         title.textContent = `${element.title}`;
         author.textContent = `${element.author}`;
         pages.textContent = `Pages: ${element.pages}`;
-        status.textContent = `Status: ${element.read}`;
+        status.textContent = `Status: ${element.status}`;
         book.append(title, author, pages, status);
         container.appendChild(book);
 
@@ -66,6 +64,13 @@ function displayBooksOnPage() {
         removeBookBtn.addEventListener('click', removeBook);
         removeBookBtn.setAttribute('data-index', `${index}`);
         book.append(removeBookBtn);
+
+        // button to change read status of book
+        const changeStatusBtn = document.createElement('button');
+        changeStatusBtn.textContent = 'Change Status';
+        changeStatusBtn.addEventListener('click', changeStatus);
+        changeStatusBtn.setAttribute('data-index', `${index}`);
+        book.append(changeStatusBtn);
 
         index += 1;
     });
@@ -88,6 +93,7 @@ displayBtn.addEventListener('click', displayForm);
 
 const form = document.querySelector('#add-book');
 
+// form to retrieve user input on books
 form.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -113,4 +119,14 @@ function removeBook(e) {
 
     // remove book from library
     myLibrary.splice(clickedIndex, 1);
+}
+
+function changeStatus(e) {
+    console.log('change status button');
+    const clickedStatus = document.querySelector(`
+        div[data-index='${e.target.dataset.index}']`);  
+}
+
+function changeProtoStatus() {
+    
 }
