@@ -118,10 +118,6 @@ form.addEventListener('submit', (e) => {
 
 // remove book from display when remove book button clicked
 function removeBook(e) {
-    console.log('do something');
-    console.log(e.target.dataset.index);
-    let clickedIndex = e.target.dataset.index;
-
     const clickedBook = document.querySelector(`
         div[data-index='${e.target.dataset.index}']`);
     container.removeChild(clickedBook);
