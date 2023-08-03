@@ -11,6 +11,13 @@ function Book(title, author, pages, status) {
     };
 }
 
+// add status prototype to Book constructor
+Book.prototype.changeStatus = function() {
+    // if button linked to book is clicked, change the status to something else
+    // something must call this prototype
+    console.log('hello hehehe');
+};
+
 const howlsCastle = new Book(
     'Howl\'s Moving Castle',
     'Diana Wynne Jones',
@@ -68,7 +75,9 @@ function displayBooksOnPage() {
         // button to change read status of book
         const changeStatusBtn = document.createElement('button');
         changeStatusBtn.textContent = 'Change Status';
-        changeStatusBtn.addEventListener('click', changeStatus);
+        changeStatusBtn.addEventListener('click', (e) => {
+            myLibrary[e.target.dataset.index].changeStatus();
+        });
         changeStatusBtn.setAttribute('data-index', `${index}`);
         book.append(changeStatusBtn);
 
@@ -119,14 +128,4 @@ function removeBook(e) {
 
     // remove book from library
     myLibrary.splice(clickedIndex, 1);
-}
-
-function changeStatus(e) {
-    console.log('change status button');
-    const clickedStatus = document.querySelector(`
-        div[data-index='${e.target.dataset.index}']`);  
-}
-
-function changeProtoStatus() {
-    
 }
