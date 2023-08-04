@@ -12,10 +12,15 @@ function Book(title, author, pages, status) {
 }
 
 // add status prototype to Book constructor
-Book.prototype.changeStatus = function() {
+Book.prototype.changeStatus = function(inputIndex) {
     // if button linked to book is clicked, change the status to something else
     // something must call this prototype
     console.log('hello hehehe');
+    if (myLibrary[inputIndex].status === 'read') {
+        myLibrary[inputIndex].status = 'not read';
+    } else {
+        myLibrary[inputIndex].status = 'read';
+    }
 };
 
 const howlsCastle = new Book(
@@ -76,7 +81,8 @@ function displayBooksOnPage() {
         const changeStatusBtn = document.createElement('button');
         changeStatusBtn.textContent = 'Change Status';
         changeStatusBtn.addEventListener('click', (e) => {
-            myLibrary[e.target.dataset.index].changeStatus();
+            let arrayIndex = e.target.dataset.index;
+            myLibrary[e.target.dataset.index].changeStatus(arrayIndex);
         });
         changeStatusBtn.setAttribute('data-index', `${index}`);
         book.append(changeStatusBtn);
@@ -123,5 +129,5 @@ function removeBook(e) {
     container.removeChild(clickedBook);
 
     // remove book from library
-    myLibrary.splice(clickedIndex, 1);
+    myLibrary.splice(e.target.dataset.index, 1);
 }
