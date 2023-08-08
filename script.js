@@ -13,14 +13,17 @@ function Book(title, author, pages, status) {
 
 // add status prototype to Book constructor
 Book.prototype.changeStatus = function(inputIndex) {
-    // if button linked to book is clicked, change the status to something else
-    // something must call this prototype
     console.log('hello hehehe');
     if (myLibrary[inputIndex].status === 'read') {
         myLibrary[inputIndex].status = 'not read';
     } else {
         myLibrary[inputIndex].status = 'read';
     }
+
+    const clickedBook = document.querySelector(`
+        div[data-index='${inputIndex}']`);
+    let statusText = document.querySelector('#status');
+    statusText.textContent = myLibrary[inputIndex].status;
 };
 
 const howlsCastle = new Book(
@@ -63,6 +66,7 @@ function displayBooksOnPage() {
         const author = document.createElement('div');
         const pages = document.createElement('div');
         const status = document.createElement('div');
+        status.id = 'status';
         title.textContent = `${element.title}`;
         author.textContent = `${element.author}`;
         pages.textContent = `Pages: ${element.pages}`;
@@ -82,7 +86,7 @@ function displayBooksOnPage() {
         changeStatusBtn.textContent = 'Change Status';
         changeStatusBtn.addEventListener('click', (e) => {
             let arrayIndex = e.target.dataset.index;
-            myLibrary[e.target.dataset.index].changeStatus(arrayIndex);
+            myLibrary[arrayIndex].changeStatus(arrayIndex);
         });
         changeStatusBtn.setAttribute('data-index', `${index}`);
         book.append(changeStatusBtn);
