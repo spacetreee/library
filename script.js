@@ -70,7 +70,7 @@ function displayBooksOnPage() {
         title.textContent = `${element.title}`;
         author.textContent = `${element.author}`;
         pages.textContent = `Pages: ${element.pages}`;
-        status.textContent = `Status: ${element.status}`;
+        status.textContent = `${element.status}`;
         book.append(title, author, pages, status);
         container.appendChild(book);
 
@@ -119,7 +119,7 @@ form.addEventListener('submit', (e) => {
     const newTitle = document.querySelector('#title');
     const newAuthor = document.querySelector('#author');
     const newPages = document.querySelector('#page');
-    const newStatus = document.querySelector('#status');
+    const newStatus = document.querySelector('.div-status #status');
 
     console.log(newTitle.value, newAuthor.value, newPages.value, newStatus.value);
     addBookToLibrary(newTitle.value, newAuthor.value, newPages.value, newStatus.value);
