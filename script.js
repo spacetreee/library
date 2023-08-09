@@ -74,6 +74,7 @@ function displayBooksOnPage() {
         // add button to remove book from display
         const removeBookBtn = document.createElement('button');
         removeBookBtn.textContent = 'Remove Book';
+        // eslint-disable-next-line no-use-before-define
         removeBookBtn.addEventListener('click', removeBook);
         removeBookBtn.setAttribute('data-index', `${index}`);
         book.append(removeBookBtn);
