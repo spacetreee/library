@@ -12,15 +12,14 @@ function Book(title, author, pages, status) {
 }
 
 // add status prototype to Book constructor
-Book.prototype.changeStatus = function(inputIndex) {
-    console.log('hello hehehe');
+Book.prototype.changeStatus = function (inputIndex) {
     if (myLibrary[inputIndex].status === 'read') {
         myLibrary[inputIndex].status = 'not read';
     } else {
         myLibrary[inputIndex].status = 'read';
     }
 
-    let statusText = document.querySelector(`div[data-index='${inputIndex}'] #status`);
+    const statusText = document.querySelector(`div[data-index='${inputIndex}'] #status`);
     statusText.textContent = myLibrary[inputIndex].status;
 };
 
@@ -83,7 +82,7 @@ function displayBooksOnPage() {
         const changeStatusBtn = document.createElement('button');
         changeStatusBtn.textContent = 'Change Status';
         changeStatusBtn.addEventListener('click', (e) => {
-            let arrayIndex = e.target.dataset.index;
+            const arrayIndex = e.target.dataset.index;
             myLibrary[arrayIndex].changeStatus(arrayIndex);
         });
         changeStatusBtn.setAttribute('data-index', `${index}`);
@@ -119,7 +118,6 @@ form.addEventListener('submit', (e) => {
     const newPages = document.querySelector('#page');
     const newStatus = document.querySelector('.div-status #status');
 
-    console.log(newTitle.value, newAuthor.value, newPages.value, newStatus.value);
     addBookToLibrary(newTitle.value, newAuthor.value, newPages.value, newStatus.value);
     displayBooksOnPage();
 });
