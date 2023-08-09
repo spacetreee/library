@@ -132,4 +132,6 @@ function removeBook(e) {
 
     // remove book from library
     myLibrary.splice(e.target.dataset.index, 1);
+
+    displayBooksOnPage();
 }
