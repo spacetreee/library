@@ -20,9 +20,7 @@ Book.prototype.changeStatus = function(inputIndex) {
         myLibrary[inputIndex].status = 'read';
     }
 
-    const clickedBook = document.querySelector(`
-        div[data-index='${inputIndex}']`);
-    let statusText = document.querySelector('#status');
+    let statusText = document.querySelector(`div[data-index='${inputIndex}'] #status`);
     statusText.textContent = myLibrary[inputIndex].status;
 };
 
